@@ -12,9 +12,11 @@
        Encuestadores
     </title>
     <!--     Fonts and icons     -->
+
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
     <link rel="stylesheet" href="{{ asset('css/material-dashboard.min.css') }}">
+    <link rel="stylesheet" href="css/dpe.css">
     <!-- Documentation extras -->
     <!-- CSS Just for demo purpose, don't include it in your project -->
 
@@ -36,20 +38,20 @@
             </div>
             <div class="sidebar-wrapper">
                 <ul class="nav">
-                    <li class="nav-item active ">
+                    <li class="nav-item {{ Request::is('/')  ? 'active' : '' }} ">
                             <a class="nav-link" href="../examples/table.html">
                                 <i class="material-icons">home</i>
                                 <p>Inicio</p>
                             </a>
                     </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="../examples/dashboard.html">
+                    <li class="nav-item {{ Request::is('usuarios*')  ? 'active' : '' }}" >
+                        <a class="nav-link" href="/usuarios">
                             <i class="material-icons">person</i>
                             <p>Usuarios</p>
                         </a>
                     </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="../examples/user.html">
+                    <li class="nav-item {{ Request::is('encuestadores*')  ? 'active' : '' }}" ">
+                        <a class="nav-link" href="/encuestadores">
                             <i class="material-icons">location_ons</i>
                             <p>Encuestadores</p>
                         </a>
@@ -70,13 +72,26 @@
                     <div class="collapse navbar-collapse justify-content-end" id="navigation">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="#pablo">
+                                <a class="nav-link"  href="{{ route('login') }}">
+
                                     <i class="material-icons">dashboard</i>
+                                    Login
                                     <p>
                                         <span class="d-lg-none d-md-block">Stats</span>
                                     </p>
                                 </a>
                             </li>
+
+                            <li class="nav-item">
+                                    <a class="nav-link"  href="{{ route('logout') }}">
+
+                                        <i class="material-icons">dashboard</i>
+                                        Salir
+                                        <p>
+                                            <span class="d-lg-none d-md-block">Stats</span>
+                                        </p>
+                                    </a>
+                                </li>
 
                         </ul>
                     </div>
@@ -102,7 +117,7 @@
                 </div>
             </footer>
         </div>
-    </div>
+
 </body>
 <!--   Core JS Files   -->
 <script src="{{ asset('js/jquery.min.js') }}"></script>
@@ -116,7 +131,5 @@
 <!-- Material Dashboard Core initialisations of plugins and Bootstrap Material Design Library -->
 <script src="{{ asset('js/material-dashboard.js') }}"></script>
 <!-- demo init -->
-
-
 
 </html>

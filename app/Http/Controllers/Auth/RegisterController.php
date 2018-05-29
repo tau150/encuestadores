@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Mail;
+use App\Mail\RegistrationUser;
 
 class RegisterController extends Controller
 {
@@ -51,22 +53,45 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
         ]);
     }
 
     /**
      * Create a new user instance after a valid registration.
-     *
+     *  'password' => 'required|string|min:6|confirmed',
      * @param  array  $data
      * @return \App\User
      */
+
+ /**
+ *   protected function create(array $data)
+ *   {
+ *       return User::create([
+  *          'name' => $data['name'],
+   *         'email' => $data['email'],
+    *        'password' => Hash::make($data['password']),
+     *       'role_id' => $data['role']
+      *  ]);
+
+      *  Mail::to($user)
+    *}
+     */
+
+
     protected function create(array $data)
     {
-        return User::create([
+
+        $random = str_shuffle('abcdefghjklmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ234567890!$%^&!$%^&');
+        $password = substr($random, 0, 10);
+
+
+        $user =  User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'password' => Hash::make($password),
+            'role_id' => $data['role']
         ]);
+
+        Mail::to($user)->send(new RegistrationUser);
     }
 }
