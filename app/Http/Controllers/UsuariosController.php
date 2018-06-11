@@ -14,7 +14,8 @@ class UsuariosController extends Controller
      */
     public function index()
     {
-        $usuarios = User::all();
+
+        $usuarios = User::all()->sortByDesc('created_at');
         return view('usuarios.index', compact('usuarios'));
     }
 
@@ -45,6 +46,8 @@ class UsuariosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+
     public function show($id)
     {
         //
@@ -58,7 +61,8 @@ class UsuariosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $usuario = User::findOrFail($id);
+        return view('usuarios.edit', compact('usuario'));
     }
 
     /**
@@ -70,7 +74,23 @@ class UsuariosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate(request(),[
+            'name'=> 'required',
+            'email' => 'required|email',
+            'role'=> 'required'
+        ]);
+
+        $usuario = User::find($id);
+        $usuario->name = request('name');
+        $usuario->email = request('email');
+        $usuario->role_id = request('role');
+
+        $usuario->save();
+
+        flash('Usuario actualizado con éxito.')->success();
+
+
+        return redirect('/usuarios');
     }
 
     /**
@@ -81,6 +101,7 @@ class UsuariosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $usuario = User::find($id);
+        $usuario->delete();
     }
 }

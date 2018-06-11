@@ -2,3 +2,120 @@
   color: #fff !important;
 }
 
+a:hover {
+  cursor: pointer;
+}
+
+.img-perfil-grid {
+  width: 80px;
+  border-radius: 50%;
+}
+
+.img-perfil-profile {
+  width: 110px !important;
+  border-radius: 50%;
+  -webkit-box-shadow: 10px 10px 41px -11px rgba(0, 0, 0, 0.75);
+          box-shadow: 10px 10px 41px -11px rgba(0, 0, 0, 0.75);
+}
+
+.logo-prov {
+  width: 70%;
+}
+
+.fadeIn {
+  opacity: 1;
+  -webkit-animation: fade 2s normal forwards;
+          animation: fade 2s normal forwards;
+}
+
+.pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.dynatable-head,
+.dynatable-sort-header {
+  color: #000 !important;
+}
+
+.dynatable-per-page {
+  float: right;
+  margin-top: 60px;
+  margin-right: 30px;
+}
+
+.dynatable-per-page-select {
+  border: none;
+  border-bottom: 1px solid #777;
+}
+
+.dynatable-search {
+  float: left;
+  margin: 60px 0;
+  position: relative;
+  margin-top: 50px !important;
+}
+
+.dynatable-active-page {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.dynatable-page-link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.dynatable-search input {
+  border: none;
+  border-bottom: 1px solid #777;
+}
+
+#dynatable-processing-encuestadores-table {
+  margin: 10% 0 !important;
+}
+
+#encuestadores-table {
+  margin-top: 5% !important;
+}
+
+select.form-control {
+  padding: 2%;
+}
+
+#defaultImgEdit {
+  display: none;
+}
+
+@-webkit-keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+

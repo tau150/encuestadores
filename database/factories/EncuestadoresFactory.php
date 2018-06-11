@@ -21,6 +21,6 @@ $factory->define(App\Encuestador::class, function (Faker $faker) {
         'nombre' => $faker->name,
         'dni'=> $faker->numberBetween($min = 21000000, $max = 38000000),
         'encuesta' => 'AAA',
-        'img' => $faker->imageUrl($width = 640, $height = 480)
+        'img' => 'profiles/default_user.jpg'
     ];
 });

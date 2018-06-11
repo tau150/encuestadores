@@ -6,7 +6,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class Encuestador extends Model
 {
+
+    protected $guarded = [];
+
+    public function setNombreAttribute($value)
+    {
+        $this->attributes['nombre'] = ucfirst($value);
+    }
+
+    public function setApellidoAttribute($value)
+    {
+        $this->attributes['apellido'] = ucfirst($value);
+    }
+
+
     public function localidad(){
-        $this->hasOne(App\Localidad::class);
+        return $this->belongsTo(\App\Localidad::class);
     }
 }
