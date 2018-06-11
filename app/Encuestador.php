@@ -23,4 +23,9 @@ class Encuestador extends Model
     public function localidad(){
         return $this->belongsTo(\App\Localidad::class);
     }
+
+    public function encuesta(){
+        return $this->belongsTo(\App\Encuesta::class);
+
+    }
 }

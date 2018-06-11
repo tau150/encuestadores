@@ -19,9 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('usuarios','UsuariosController')->middleware('checkProfile');
+Route::resource('encuestas','EncuestaController')->middleware('auth');
 Route::resource('encuestadores','EncuestadoresController')->middleware( 'auth');
 Route::get('public/encuestadores','EncuestadoresController@indexPublic');
-
-
-
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout' );

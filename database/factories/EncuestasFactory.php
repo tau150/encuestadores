@@ -13,15 +13,10 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(App\Encuestador::class, function (Faker $faker) {
+$factory->define(App\Encuesta::class, function (Faker $faker) {
     return [
-        'cargo' => 'Encuestador',
-        'localidad_id' => App\Localidad::all()->random()->id,
-        'apellido' => $faker->lastName,
-        'nombre' => $faker->name,
-        'dni'=> $faker->numberBetween($min = 21000000, $max = 38000000),
-        'encuesta_id' => App\Encuesta::all()->random()->id,
-        'img' => 'profiles/default_user.jpg',
-        'activo'=> 1
+        'nombre' => 'AAA',
+        'descripcion' => $faker->sentence($nbWords = 10, $variableNbWords = true)
+
     ];
 });

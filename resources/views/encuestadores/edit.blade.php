@@ -74,13 +74,10 @@
                                             <div class="form-group">
                                                 <label class="label-floating">Encuesta</label>
                                                 <select name="encuesta" class="form-control">
-                                                    <option value="CNA" {{ $encuestador->encuesta == 'CNA' ? 'selected' : '' }} >CNA</option>
-                                                    <option value="ENGHo" {{ $encuestador->encuesta == 'ENGHo' ? 'selected' : '' }}>ENGHo</option>
-                                                    <option value="ENPPD" {{ $encuestador->encuesta == 'ENPPD' ? 'selected' : '' }}>ENPPD</option>
-                                                    <option value="EOI" {{ $encuestador->encuesta == 'EOI' ? 'selected' : '' }}>EOI</option>
-                                                    <option value="EPA" {{ $encuestador->encuesta == 'EPA' ? 'selected' : '' }}>EPA</option>
-                                                    <option value="EPH" {{ $encuestador->encuesta == 'EPH' ? 'selected' : '' }}>EPH</option>
-                                                    <option value="IPC" {{ $encuestador->encuesta == 'IPC' ? 'selected' : '' }}>IPC</option>
+
+                                                        @foreach ($encuestas as $encuesta)
+                                                        <option value="{{ $encuesta->id }}" {{ $encuestador->encuesta->nombre == $encuesta->nombre  ? 'selected' : '' }} >{{ $encuesta->nombre }}</option>
+                                                        @endforeach
                                                 </select>
                                             </div>
                                     </div>

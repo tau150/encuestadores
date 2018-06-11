@@ -95,6 +95,11 @@ select.form-control {
   padding: 2%;
 }
 
+.delete-disabled i {
+  color: #eaeaea !important;
+  cursor: not-allowed;
+}
+
 #defaultImgEdit {
   display: none;
 }

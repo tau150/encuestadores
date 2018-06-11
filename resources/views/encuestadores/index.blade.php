@@ -44,7 +44,7 @@
                               <td>{{ $encuestador->dni}}</td>
                               <td class="test">{{ $encuestador->localidad->nombre}}</td>
                               <td>{{ $encuestador->cargo}}</td>
-                              <td>{{ $encuestador->encuesta}}</td>
+                              <td>{{ $encuestador->encuesta->nombre}}</td>
                               <td class='text-center'>
                                 <a class='mr-3 delete-icon delete-encuestador' data-identificador="{{ $encuestador->id }}"> <i class="material-icons text-danger">delete</i></a>
                                 <a href="{{ route('encuestadores.edit', ['id' => $encuestador->id])  }}"> <i class="material-icons text-info">edit</i></a>

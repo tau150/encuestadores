@@ -26,6 +26,7 @@ class checkProfile
         if( Auth::user()->role->nombre != 'superadmin' ){
             return redirect('/encuestadores');
         }
+
         return $next($request);
 
 

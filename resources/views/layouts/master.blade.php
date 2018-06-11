@@ -41,6 +41,18 @@
             </div>
             <div class="sidebar-wrapper">
                 <ul class="nav">
+
+
+                        @if ( Auth::user()->role->nombre == 'superadmin' )
+                        <li class="nav-item {{ Request::is('usuarios*')  ? 'active' : '' }}" >
+                            <a class="nav-link" href="/usuarios">
+                                <i class="material-icons">person</i>
+                                <p>Adm. Usuarios</p>
+                            </a>
+                        </li>
+                        @endif
+
+
                   <li class="nav-item {{ Request::is('encuestadores*')  ? 'active' : '' }} ">
                         <a class="nav-link" href="/encuestadores">
                             <i class="material-icons">location_ons</i>
@@ -48,14 +60,13 @@
                         </a>
                     </li>
 
-                    @if ( Auth::user()->role->nombre == 'superadmin' )
-                    <li class="nav-item {{ Request::is('usuarios*')  ? 'active' : '' }}" >
-                        <a class="nav-link" href="/usuarios">
-                            <i class="material-icons">person</i>
-                            <p>Adm. Usuarios</p>
-                        </a>
-                    </li>
-                    @endif
+                    <li class="nav-item {{ Request::is('encuestas*')  ? 'active' : '' }} ">
+                            <a class="nav-link" href="/encuestas">
+                                <i class="material-icons">assignment</i>
+                                <p>Adm. Encuestas</p>
+                            </a>
+                        </li>
+
                 </ul>
             </div>
         </div>

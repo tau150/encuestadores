@@ -8,8 +8,7 @@ use App\Localidad;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\Encuestadores;
-use App\Http\Requests\EncuestadoresEdit;
-
+use App\Encuesta;
 
 class EncuestadoresController extends Controller
 {
@@ -38,7 +37,6 @@ class EncuestadoresController extends Controller
     {
 
         $encuestadores = Encuestador::Latest()->get();
-
         return view('encuestadores.index', compact('encuestadores'));
     }
 
@@ -55,8 +53,9 @@ class EncuestadoresController extends Controller
     public function create()
     {
         $localidades = Localidad::all();
+        $encuestas = Encuesta::all();
 
-        return view('encuestadores.create', compact('localidades'));
+        return view('encuestadores.create', compact('localidades', 'encuestas'));
     }
 
     /**
@@ -85,7 +84,7 @@ class EncuestadoresController extends Controller
             'dni' => request('dni'),
             'localidad_id' => request('localidad'),
             'cargo' => request('cargo'),
-            'encuesta' => request('encuesta'),
+            'encuesta_id' => request('encuesta'),
             'img' => $path
         ]);
 
@@ -116,9 +115,10 @@ class EncuestadoresController extends Controller
     {
         $localidades = Localidad::all();
         $encuestador= Encuestador::findOrFail($id);
+        $encuestas = Encuesta::all();
 
 
-        return view('encuestadores.edit', compact('localidades', 'encuestador'));
+        return view('encuestadores.edit', compact('localidades', 'encuestador', 'encuestas'));
     }
 
     /**
@@ -148,14 +148,12 @@ class EncuestadoresController extends Controller
 
         }
 
-
-
         $encuestador->apellido = request('apellido');
         $encuestador->nombre = request('nombre');
         $encuestador->dni = request('dni');
         $encuestador->localidad_id = request('localidad');
         $encuestador->cargo = request('cargo');
-        $encuestador->encuesta = request('encuesta');
+        $encuestador->encuesta_id = request('encuesta');
 
 
         $encuestador->save();

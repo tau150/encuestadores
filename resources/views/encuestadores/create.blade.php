@@ -64,14 +64,10 @@
                                             <div class="form-group">
                                                 <label class="label-floating">Encuesta</label>
                                                 <select name="encuesta" class="form-control">
-                                                    <option value="" disabled {{ old('encuesta') == '' ? 'selected' : '' }}>Seleccione una opción</option>
-                                                    <option value="CNA" {{ old('encuesta') == 'CNA' ? 'selected' : '' }}>CNA</option>
-                                                    <option value="ENGHo" {{ old('encuesta') == 'ENGHo' ? 'selected' : '' }}>ENGHo</option>
-                                                    <option value="ENPPD" {{ old('encuesta') == 'ENPPD' ? 'selected' : '' }}>ENPPD</option>
-                                                    <option value="EOI" {{ old('encuesta') == 'EOI' ? 'selected' : '' }}>EOI</option>
-                                                    <option value="EPA" {{ old('encuesta') == 'EPA' ? 'selected' : '' }}>EPA</option>
-                                                    <option value="EPH" {{ old('encuesta') == 'EPH' ? 'selected' : '' }}>EPH</option>
-                                                    <option value="IPC" {{ old('encuesta') == 'IPC' ? 'selected' : '' }}>IPC</option>
+                                                        <option value="" disabled selected>Seleccione una opción</option>
+                                                        @foreach ($encuestas as $encuesta)
+                                                        <option value="{{ $encuesta->id }}" {{ old('encuesta') == $encuesta->id ? 'selected' : '' }} >{{ $encuesta->nombre }}</option>
+                                                        @endforeach
                                                 </select>
                                             </div>
                                     </div>

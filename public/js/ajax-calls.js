@@ -93,6 +93,12 @@ $(document).ready(function () {
                     url: route + "/" + id + "/",
                     headers: { "Content-Type": "application/json" }
                 }).then(function (result) {
+                    console.log(result);
+
+                    if (result.data === "not allowed") {
+                        swal("No permitido", "No es posible eliminar porque tiene encuestadores asociados.", "error");
+                        return;
+                    }
                     swal("Eliminado!", "El registro fue eliminado.", "success").then(function (result) {
                         location.reload();
                     });
@@ -103,9 +109,9 @@ $(document).ready(function () {
         });
     }
 
-    $("#encuestadores-table").dynatable();
-    var dynatable = $("#encuestadores-table").data("dynatable");
-    dynatable.process();
+    // $("#encuestadores-table").dynatable();
+    // var dynatable = $("#encuestadores-table").data("dynatable");
+    // dynatable.process();
 
     $(".delete-usuario").click(function () {
         var id = $(this).data("identificador");
@@ -115,6 +121,11 @@ $(document).ready(function () {
     $(".delete-encuestador").on("click", function () {
         var id = $(this).data("identificador");
         deleteAjax(id, "/encuestadores");
+    });
+
+    $(".delete-encuesta").on("click", function () {
+        var id = $(this).data("identificador");
+        deleteAjax(id, "/encuestas");
     });
 });
 
