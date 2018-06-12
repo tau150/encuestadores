@@ -44,6 +44,9 @@ class EncuestaController extends Controller
             'descripcion'=> request('descripcion'),
         ]);
 
+        flash('Encuestador creado con éxito.')->success();
+
+
         return redirect('/encuestas');
     }
 

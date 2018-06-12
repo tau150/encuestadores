@@ -109,7 +109,7 @@ class RegisterController extends Controller
         ]);
 
 
-        Mail::to($user)->send(new RegistrationUser);
+        // Mail::to($user)->send(new RegistrationUser);
 
          /**
 *        Mail::to($user)->send(new RegistrationUser);

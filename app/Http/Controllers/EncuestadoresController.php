@@ -85,7 +85,8 @@ class EncuestadoresController extends Controller
             'localidad_id' => request('localidad'),
             'cargo' => request('cargo'),
             'encuesta_id' => request('encuesta'),
-            'img' => $path
+            'img' => $path,
+            'activo' => request('activo'),
         ]);
 
         flash('Encuestador creado con éxito.')->success();
@@ -154,7 +155,7 @@ class EncuestadoresController extends Controller
         $encuestador->localidad_id = request('localidad');
         $encuestador->cargo = request('cargo');
         $encuestador->encuesta_id = request('encuesta');
-
+        $encuestador->activo = $request->has('activo') ? 1 : 0;
 
         $encuestador->save();
 

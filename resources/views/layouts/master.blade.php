@@ -7,7 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <!-- Favicons -->
     <link rel="apple-touch-icon" href="../assets/img/apple-icon.png">
-    <link rel="icon" href="../assets/img/favicon.png">
+
+    <link rel="icon" href="{{ asset('images/favicon.jpg') }}">
+
     <title>
        Encuestadores
     </title>
@@ -84,6 +86,19 @@
                     <div class="collapse navbar-collapse justify-content-end" id="navigation">
                         @if (Auth::check())
                         <ul class="navbar-nav">
+
+                            <li class="nav-item">
+                                    <a class="nav-link"  href="{{ route('logout') }}">
+
+                                        <i class="material-icons">account_circle</i>
+                                        {{ Auth::user()->name}}
+                                        <p>
+                                            <span class="d-lg-none d-md-block">Stats</span>
+                                        </p>
+                                    </a>
+                                </li>
+
+
                             <li class="nav-item">
                                     <a class="nav-link"  href="{{ route('logout') }}">
 

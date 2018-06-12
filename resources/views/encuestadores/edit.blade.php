@@ -20,12 +20,18 @@
                                                 <img class='img-perfil-profile hidden' id="defaultImgEdit" src="\images/default_user.jpg" alt="">
 
 
-
                                         </div>
 
                                         <input name="id" type="hidden" value="{{ $encuestador->id }}">
 
-
+                                    <div class="col-12 text-center">
+                                            <div class="form-check">
+                                                    <label class="form-check-label">
+                                                    <input type="checkbox" name='activo'{{ $encuestador->activo ? 'checked' : ''}}>
+                                                      Activo
+                                                    </label>
+                                            </div>
+                                    </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="label-floating">Apellido</label>

@@ -20,10 +20,10 @@
 
                 </div>
                 <div class="card-body">
-                    <table class="table table-striped table-usuarios">
+                    <table class="table table-striped">
                         <thead>
                           <tr>
-                            <th class="font-weight-bold" scope="col" data-dynatable-no-sort='true'>Nombre</th>
+                            <th class="font-weight-bold" scope="col">Nombre</th>
                             <th class="font-weight-bold" scope="col">Descripción</th>
                             <th class="text-center font-weight-bold" scope="col" >Acciones</th>
                           </tr>

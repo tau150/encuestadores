@@ -45,9 +45,20 @@ $(document).ready(function() {
         });
     }
 
-    // $("#encuestadores-table").dynatable();
-    // var dynatable = $("#encuestadores-table").data("dynatable");
-    // dynatable.process();
+    if (window.location.pathname === "/encuestadores") {
+        $("#encuestadores-table").dynatable({
+            features: {
+                paginate: true,
+                recordCount: true,
+                sorting: false
+            },
+            inputs: {
+                queries: $("#search-activo")
+            }
+        });
+        var dynatable = $("#encuestadores-table").data("dynatable");
+        dynatable.process();
+    }
 
     $(".delete-usuario").click(function() {
         var id = $(this).data("identificador");
@@ -60,6 +71,7 @@ $(document).ready(function() {
     });
 
     $(".delete-encuesta").on("click", function() {
+        console.log("asasd");
         var id = $(this).data("identificador");
         deleteAjax(id, "/encuestas");
     });

@@ -12,6 +12,9 @@
                             <form enctype="multipart/form-data" method='post' action="{{ route('encuestas.update', ['id' => $encuesta->id]) }}">
                                {{ csrf_field() }}
                                {{ method_field('PATCH') }}
+
+
+                               <input name="id" type="hidden" value="{{ $encuesta->id }}">
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">

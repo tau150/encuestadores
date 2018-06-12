@@ -23,8 +23,9 @@ class EncuestaRequest extends FormRequest
      */
     public function rules()
     {
+
              return [
-            'nombre' => 'required|unique:encuestas,nombre,'.$this->id,
+            'nombre' => 'required|unique:encuestas,nombre,'. request('id'),
             'descripcion' => 'required',
         ];
     }

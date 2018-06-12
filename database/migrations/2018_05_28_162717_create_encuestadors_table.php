@@ -22,7 +22,7 @@ class CreateEncuestadorsTable extends Migration
             $table->integer('dni')->unsigned();
             $table->integer('encuesta_id')->unsigned();
             $table->string('img');
-            $table->boolean('activo')->default(1;
+            $table->boolean('activo')->default(1);
             $table->timestamps();
         });
     }

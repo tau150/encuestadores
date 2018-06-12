@@ -88,6 +88,11 @@ select.form-control {
     cursor: not-allowed;
 }
 
+.activo-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
 #defaultImgEdit {
     display: none;
 }

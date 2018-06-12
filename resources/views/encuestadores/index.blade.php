@@ -16,11 +16,26 @@
             </div>
             <div class="card">
                 <div class="card-header card-header-success">
-                    <h3>Encuestadores</h3>
-
                 </div>
                 <div class="card-body">
+                    <div class="row justify-content-center text-center">
+                            <div class="form-group col-2 container-filtro-activo">
+                                    <div class="form-group">
+                                            <label for="exampleFormControlSelect1">Mostrar por Tipo</label>
+                                            <select class="form-control"  id="search-activo" name="activo">
+                                              <option></option>
+                                              <option>Sí</option>
+                                              <option>No</option>
+                                            </select>
+                                          </div>
+                            </div>
+
+                    </div>
+
                     <table class="table table-striped table-usuarios" id='encuestadores-table'>
+
+
+
                         <thead>
                           <tr>
                             <th class="font-weight-bold" scope="col" data-dynatable-no-sort='true'>Perfil</th>
@@ -28,9 +43,12 @@
                             <th class="font-weight-bold" scope="col">Nombre</th>
                             <th class="font-weight-bold" scope="col" data-dynatable-no-sort='true'>Dni</th>
                             <th class="font-weight-bold" scope="col">Localidad</th>
+                            <th class="font-weight-bold" scope="col">Partido</th>
                             <th class="font-weight-bold" scope="col">Cargo</th>
                             <th class="font-weight-bold" scope="col">Encuesta</th>
-                            <th class="text-center font-weight-bold" scope="col" >Acciones</th>
+                            <th class="font-weight-bold" scope="col">Activo  </th>
+
+                            <th class="text-center font-weight-bold" scope="col" data-dynatable-no-sort='true'>Acciones</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -43,8 +61,11 @@
                               <td>{{ $encuestador->nombre}}</td>
                               <td>{{ $encuestador->dni}}</td>
                               <td class="test">{{ $encuestador->localidad->nombre}}</td>
+                              <td class="test">{{ $encuestador->localidad->nombre}}</td>
                               <td>{{ $encuestador->cargo}}</td>
                               <td>{{ $encuestador->encuesta->nombre}}</td>
+
+                              <td>{{ $encuestador->activo ? 'Sí' : 'No'}}</td>
                               <td class='text-center'>
                                 <a class='mr-3 delete-icon delete-encuestador' data-identificador="{{ $encuestador->id }}"> <i class="material-icons text-danger">delete</i></a>
                                 <a href="{{ route('encuestadores.edit', ['id' => $encuestador->id])  }}"> <i class="material-icons text-info">edit</i></a>
