@@ -16,6 +16,7 @@
             </div>
             <div class="card">
                 <div class="card-header card-header-success">
+                    <h3>Encuestadores</h3>
                 </div>
                 <div class="card-body">
                     <div class="row justify-content-center text-center">
@@ -43,7 +44,6 @@
                             <th class="font-weight-bold" scope="col">Nombre</th>
                             <th class="font-weight-bold" scope="col" data-dynatable-no-sort='true'>Dni</th>
                             <th class="font-weight-bold" scope="col">Localidad</th>
-                            <th class="font-weight-bold" scope="col">Partido</th>
                             <th class="font-weight-bold" scope="col">Cargo</th>
                             <th class="font-weight-bold" scope="col">Encuesta</th>
                             <th class="font-weight-bold" scope="col">Activo  </th>
@@ -60,7 +60,6 @@
                               <td>{{ $encuestador->apellido}}</td>
                               <td>{{ $encuestador->nombre}}</td>
                               <td>{{ $encuestador->dni}}</td>
-                              <td class="test">{{ $encuestador->localidad->nombre}}</td>
                               <td class="test">{{ $encuestador->localidad->nombre}}</td>
                               <td>{{ $encuestador->cargo}}</td>
                               <td>{{ $encuestador->encuesta->nombre}}</td>

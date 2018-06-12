@@ -852,11 +852,12 @@
                 recordsShown === recordsQueryCount &&
                 settings.features.paginate
             ) {
-                text += recordsShown + " of ";
+                text += recordsShown + " de ";
             }
             text += recordsQueryCount + " " + collection_name;
             if (recordsQueryCount < recordsTotal) {
-                text += " (filtered from " + recordsTotal + " total records)";
+                text +=
+                    " (filtrados sobre " + recordsTotal + " registros totales)";
             }
 
             return $("<span></span>", {
